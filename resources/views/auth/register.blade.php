@@ -45,7 +45,7 @@
             </div>
 
             <p class="text-center mt-3">
-                <a href="{{ route('login') }}">Already Registered?</a>
+                Already have an account? <a href="{{ route('login') }}">Login here</a>
             </p>
 
         </form>
