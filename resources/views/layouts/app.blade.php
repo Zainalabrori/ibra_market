@@ -7,6 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Market Place</title>
+        <link rel="icon" href="{{ asset('images/market.png') }}" type="image/png">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -147,7 +148,7 @@
 
             <!-- Page Content -->
             <main class="flex-grow-1">
-                <div class="container py-4">
+                <div class="container-fluid py-4">
                     {{ $slot }}
                 </div>
             </main>
