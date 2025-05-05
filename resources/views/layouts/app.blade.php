@@ -76,7 +76,15 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid px-3 px-lg-5">
                 <!-- Logo -->
-                <a class="navbar-brand me-4" href="{{ route('dashboard') }}">
+                {{-- <a class="navbar-brand me-4" href="{{ route('dashboard') }}">
+                    <img src="{{ asset('images/market.png') }}" alt="Logo" height="36">
+                </a> --}}
+
+                @php
+                    $dashboard = auth()->user()->hasRole('admin') ? route('admin.dashboard') : route('user.dashboard');
+                @endphp
+
+                <a class="navbar-brand me-4" href="{{ $dashboard }}">
                     <img src="{{ asset('images/market.png') }}" alt="Logo" height="36">
                 </a>
 
@@ -110,9 +118,8 @@
                                         <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=0D8ABC&color=fff"
                                             alt="Avatar" width="36" height="36" class="rounded-circle shadow-sm">
                                         <!-- Online Status Dot -->
-                                        <span
-                                        class="position-absolute p-1 bg-success border border-white rounded-circle"
-                                        style="bottom: -1px; right: -1px;">
+                                        <span class="position-absolute p-1 bg-success border border-white rounded-circle"
+                                            style="bottom: -1px; right: -1px;">
                                             <span class="visually-hidden">Online</span>
                                         </span>
                                     </span>
