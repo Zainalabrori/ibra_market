@@ -7,10 +7,6 @@
         </p>
     </header>
 
-    <!-- Trigger Button -->
-    {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
-        Delete Account
-    </button> --}}
     <button type="button" class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
         Delete Account
     </button>
