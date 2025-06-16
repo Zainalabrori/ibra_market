@@ -13,9 +13,9 @@ Route::get('/', function () {
 Route::middleware('auth')->get('/dashboard', function () {
     $user = Auth::user();
 
-    if ($user->hasRole('admin')) {
+    if ($user->role === 'admin') {
         return redirect()->route('admin.dashboard');
-    } elseif ($user->hasRole('user')) {
+    } elseif ($user->role === 'user') {
         return redirect()->route('user.dashboard');
     }
 
