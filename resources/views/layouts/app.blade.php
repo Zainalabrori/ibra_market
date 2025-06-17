@@ -67,6 +67,15 @@
         .dropdown-item:active {
             background-color: var(--bs-primary);
         }
+
+        .nav-underline {
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .nav-underline:hover {
+            border-bottom: 3px solid rgb(255, 255, 255);
+        }
     </style>
 </head>
 
