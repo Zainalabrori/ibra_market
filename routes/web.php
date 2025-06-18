@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -31,6 +32,9 @@ Route::middleware(['auth','role:admin'])->group(function () {
 Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/user/dashboard',[UserController::class,'dashboard'])->name('user.dashboard');
 });
+
+// Product Routes - Resource Controller with Authentication
+Route::resource('products', ProductController::class)->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

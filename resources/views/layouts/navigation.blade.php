@@ -24,14 +24,16 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('dashboard') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="{{ route('dashboard') }}">
+                        <i class="fas fa-tachometer-alt me-2"></i>
                         {{ __('Dashboard') }}
                     </a>
                 </li>
 
                 {{-- Products --}}
                 <li class="nav-item mx-2">
-                    <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('products.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
-                        href="#">
+                    <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('products') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
+                        href="{{ route('products.index') }}">
+                        <i class="fas fa-box me-2"></i>
                         {{ __('Products') }}
                     </a>
                 </li>
@@ -40,6 +42,7 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('categories.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="#">
+                        <i class="fas fa-tags me-2"></i>
                         {{ __('Categories') }}
                     </a>
                 </li>
@@ -48,6 +51,7 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('orders.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="#">
+                        <i class="fas fa-shopping-cart me-2"></i>
                         {{ __('Orders') }}
                     </a>
                 </li>
@@ -56,6 +60,7 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('customers.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="#">
+                        <i class="fas fa-users me-2"></i>
                         {{ __('Customers') }}
                     </a>
                 </li>
@@ -64,6 +69,7 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('payments.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="#">
+                        <i class="fas fa-credit-card me-2"></i>
                         {{ __('Payments') }}
                     </a>
                 </li>
@@ -72,6 +78,7 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('reports.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="#">
+                        <i class="fas fa-chart-bar me-2"></i>
                         {{ __('Reports') }}
                     </a>
                 </li>
@@ -80,10 +87,10 @@
                 <li class="nav-item mx-2">
                     <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('settings.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
                         href="#">
+                        <i class="fas fa-cog me-2"></i>
                         {{ __('Settings') }}
                     </a>
                 </li>
-
             </ul>
 
             <!-- Right-side User Menu -->
