@@ -40,48 +40,47 @@
                         <!-- Product Image -->
                         <div class="card-img-top bg-light d-flex align-items-center justify-content-center"
                             style="height: 200px;">
-                            <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="img-fluid rounded"
+                            <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="img-fluid rounded"
                                 style="max-height: 180px; max-width: 100%;">
                         </div>
 
                         <!-- Product Info -->
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title mb-0">{{ $product['name'] }}</h5>
-                                <span class="badge bg-primary">{{ $product['category'] }}</span>
+                                <h5 class="card-title mb-0">{{ $product->name }}</h5>
+                                <span class="badge bg-primary">{{ $product->category }}</span>
                             </div>
 
                             <p class="card-text text-muted flex-grow-1">
-                                {{ Str::limit($product['description'], 100) }}
+                                {{ Str::limit($product->description, 100) }}
                             </p>
 
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div>
-                                    <span
-                                        class="h5 text-success mb-0">${{ number_format($product['price'], 2) }}</span>
+                                    <span class="h5 text-success mb-0">${{ number_format($product->price, 2) }}</span>
                                 </div>
                                 <div class="text-end">
                                     <small class="text-muted">Stock: </small>
                                     <span
-                                        class="badge {{ $product['stock'] > 10 ? 'bg-success' : ($product['stock'] > 0 ? 'bg-warning' : 'bg-danger') }}">
-                                        {{ $product['stock'] }}
+                                        class="badge {{ $product->stock > 10 ? 'bg-success' : ($product->stock > 0 ? 'bg-warning' : 'bg-danger') }}">
+                                        {{ $product->stock }}
                                     </span>
                                 </div>
                             </div>
 
                             <!-- Action Buttons -->
                             <div class="btn-group w-100" role="group">
-                                <a href="{{ route('products.show', $product['id']) }}"
+                                <a href="{{ route('products.show', $product) }}"
                                     class="btn btn-outline-primary btn-sm">
                                     <i class="fas fa-eye me-1"></i>
                                     {{ __('View') }}
                                 </a>
-                                <a href="{{ route('products.edit', $product['id']) }}"
+                                <a href="{{ route('products.edit', $product) }}"
                                     class="btn btn-outline-secondary btn-sm">
                                     <i class="fas fa-edit me-1"></i>
                                     {{ __('Edit') }}
                                 </a>
-                                <form action="{{ route('products.destroy', $product['id']) }}" method="POST"
+                                <form action="{{ route('products.destroy', $product) }}" method="POST"
                                     class="d-inline"
                                     onsubmit="return confirm('Are you sure you want to delete this product?')">
                                     @csrf
@@ -113,12 +112,10 @@
             @endforelse
         </div>
 
-        <!-- Pagination (if needed) -->
-        {{--
-    <div class="d-flex justify-content-center mt-4">
-        {{ $products->links() }}
-    </div>
-    --}}
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            {{ $products->links() }}
+        </div>
     </div>
 
     @push('styles')
