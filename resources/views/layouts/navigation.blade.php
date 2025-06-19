@@ -40,8 +40,8 @@
 
                 {{-- Categories --}}
                 <li class="nav-item mx-2">
-                    <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('categories.*') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
-                        href="#">
+                    <a class="nav-link nav-underline px-3 py-2 {{ request()->routeIs('categories') ? 'active fw-bold text-primary bg-primary bg-opacity-10' : '' }}"
+                        href="{{ route('categories.index') }}">
                         <i class="fas fa-tags me-2"></i>
                         {{ __('Categories') }}
                     </a>

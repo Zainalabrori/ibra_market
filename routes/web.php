@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,16 @@ Route::middleware(['auth','role:user'])->group(function () {
 
 // Product Routes - Resource Controller with Authentication
 Route::resource('products', ProductController::class)->middleware(['auth']);
+
+// Category Routes - Resource Controller with Authentication
+Route::resource('categories', CategoryController::class)->middleware(['auth']);
+
+// Additional category routes
+    Route::patch('categories/{category}/toggle-status', [CategoryController::class, 'toggleStatus'])
+        ->name('categories.toggle-status');
+
+    Route::get('api/categories', [CategoryController::class, 'api'])
+        ->name('categories.api');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
